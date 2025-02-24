@@ -1,0 +1,31 @@
+<div class="table-container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th>CEP</th>
+        <th>UF</th>
+        <th>Contato</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pessoa of pessoas">
+        <td>{{ pessoa.id }}</td>
+        <td>{{ pessoa.nome }}</td>
+        <td>{{ pessoa.endereco }}</td>
+        <td>{{ pessoa.cep }}</td>
+        <td>{{ pessoa.uf }}</td>
+        <td>{{ pessoa.contato }}</td>
+        <td>
+          <button type="button" class="btn btn-info">Editar</button>
+          <button type="button" class="btn btn-danger">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  
