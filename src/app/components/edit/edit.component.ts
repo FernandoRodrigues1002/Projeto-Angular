@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PessoaService } from '../../services/pessoa.service';
 import { Pessoa } from '../../interfaces/pessoa';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit',
@@ -21,15 +22,16 @@ export class EditComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private pessoaService: PessoaService
+    private pessoaService: PessoaService,
+    private http: HttpClient
   ) { }
 
   ngOnInit(): void {
     this.inicializarFormulario();
     
-    // Obtém o ID da URL
+    // Obtém o ID da pessoa na rota
     this.route.params.subscribe(params => {
-      this.pessoaId = +params['id']; // Converte para número
+      this.pessoaId = +params['id']; 
       this.carregarPessoa();
     });
   }
@@ -37,11 +39,12 @@ export class EditComponent implements OnInit {
   inicializarFormulario(): void {
     this.pessoaForm = this.formBuilder.group({
       nome: ['', [Validators.required]],
+      cidade: ['', [Validators.required]],
       endereco: ['', [Validators.required]],
       cep: ['', [Validators.required, Validators.pattern(/^\d{5}-\d{3}$|^\d{8}$/)]],
       uf: ['', [Validators.required, Validators.maxLength(2)]],
       ativo: [true],
-      matricula: ['', [Validators.required]]
+      matricula: ['', [Validators.required]],
     });
   }
 
@@ -69,8 +72,26 @@ export class EditComponent implements OnInit {
       cep: pessoa.cep,
       uf: pessoa.uf,
       ativo: pessoa.ativo,
-      matricula: pessoa.matricula
+      matricula: pessoa.matricula,
+      cidade: pessoa.cidade
     });
+  }
+
+  buscarEndereco(): void {
+    const cep = this.pessoaForm.get('cep')?.value.replace(/\D/g, '');
+    if (cep && cep.length === 8) {
+      this.http.get(`https://viacep.com.br/ws/${cep}/json/`).subscribe((data: any) => {
+        if (!data.erro) {
+          this.pessoaForm.patchValue({
+            endereco: data.logradouro,
+            cidade: data.localidade,
+            uf: data.uf,
+          });
+        } else {
+          alert('CEP não encontrado.');
+        }
+      });
+    }
   }
 
   salvar(): void {
@@ -110,7 +131,7 @@ export class EditComponent implements OnInit {
     this.router.navigate(['/list']);
   }
 
-  // Helper para validação de campos
+  // Validação de campos
   exibirErro(campo: string): boolean {
     const controle = this.pessoaForm.get(campo);
     return controle ? controle.invalid && controle.touched : false;

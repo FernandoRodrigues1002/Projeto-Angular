@@ -1,14 +1,15 @@
 <div class="table-container">
-  <table class="table">
+  <table class="table table-striped">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Matricula</th>
-        <th>Nome</th>
-        <th>Endereço</th>
-        <th>CEP</th>
-        <th>UF</th>
-        <th>Contatos</th>
+        <th >ID</th>
+        <th >Matricula</th>
+        <th >Nome</th>
+        <th >Endereço</th>
+        <th >CEP</th>
+        <th >UF</th>
+        <th >Cidade</th>
+        <th >Contatos</th>
         <th>Ações</th>
       </tr>
     </thead>
@@ -20,11 +21,24 @@
         <td>{{ pessoa.endereco }}</td>
         <td>{{ pessoa.cep }}</td>
         <td>{{ pessoa.uf }}</td>
-        <td></td>
+        <td>{{ pessoa.cidade }}</td>
+        <td>
+          <ng-container *ngIf="pessoa.contatos.length > 0; else semContatos">
+            <ul>
+              <li *ngFor="let contato of pessoa.contatos">
+                {{ contato.tipoContato }}: {{ contato.contato }}
+              </li>
+            </ul>
+          </ng-container>
+          
+          <ng-template #semContatos>
+            Nenhum contato cadastrado
+          </ng-template>
+        </td>
 
         <td>
           <button type="button" class="btn btn-info" (click)="editarPessoa(pessoa.id)">Editar</button>
-          <button type="button" class="btn btn-danger">Excluir</button>
+          <button type="button" class="btn btn-danger" (click)="confirmarExclusao(pessoa)">Excluir</button>
         </td>
       </tr>
     </tbody>

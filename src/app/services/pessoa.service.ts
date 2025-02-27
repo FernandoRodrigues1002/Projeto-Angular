@@ -22,4 +22,8 @@ export class PessoaService {
   atualizarPessoa(pessoa: Pessoa): Observable<Pessoa> {
     return this.http.put<Pessoa>(`${this.apiUrl}/${pessoa.id}`, pessoa);
   }
+
+  excluirPessoa(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }

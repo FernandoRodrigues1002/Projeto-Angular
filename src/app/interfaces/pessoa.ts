@@ -1,9 +1,13 @@
+import { Contato } from './contato';
+
 export interface Pessoa {
     id: number;
+    ativo: boolean;
     nome: string;
     endereco: string;
     cep: string;
     uf: string;
-    ativo: boolean;
+    cidade: string;
     matricula: number;
+    contatos: Contato[];
 }
