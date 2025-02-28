@@ -44,6 +44,10 @@ export class ListComponent implements OnInit {
     this.router.navigate(['/edit', id]);
   }
 
+  adicionaCtt(id: number): void {
+    this.router.navigate(['/register-ctt', id]);
+  }
+
   confirmarExclusao(pessoa: any): void {
     if (confirm(`Deseja realmente excluir ${pessoa.nome}?`)) {
       this.excluirPessoa(pessoa.id);

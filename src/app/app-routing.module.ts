@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListComponent } from './components/list/list.component';
 import { RegisterComponent } from './components/register/register.component';
 import { EditComponent } from './components/edit/edit.component';
+import { RegisterCttComponent } from './components/register-ctt/register-ctt.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,9 @@ const routes: Routes = [
   },
   {
     path: 'edit/:id', component: EditComponent
+  },
+  {
+    path: 'register-ctt/:id', component: RegisterCttComponent
   }
 ];
 

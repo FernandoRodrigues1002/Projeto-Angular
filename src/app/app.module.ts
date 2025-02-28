@@ -9,6 +9,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { EditComponent } from './components/edit/edit.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterCttComponent } from './components/register-ctt/register-ctt.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     ListComponent,
     RegisterComponent,
-    EditComponent
+    EditComponent,
+    RegisterCttComponent
   ],
   imports: [
     BrowserModule,
