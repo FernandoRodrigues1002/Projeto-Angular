@@ -1,41 +1,45 @@
-<div class="container mx-auto max-w-md p-6 bg-white rounded-2xl shadow-lg">
-    <h2 class="text-2xl font-semibold mb-4 text-center">Cadastro de Pessoa</h2>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-4">
+<div class="container">
+  <h2>Cadastro de Pessoa</h2>
+  
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+      <div class="form-field">
+        <label>Matrícula *</label>
+        <input type="text" formControlName="matricula" placeholder="Matrícula" />
+      </div>
 
-      <div>
-        <label class="block text-sm font-medium">Matrícula *</label>
-        <input type="text" formControlName="matricula" class="w-full p-2 border rounded" placeholder="Matrícula" />
+      <div class="form-field">
+        <label>Nome *</label>
+        <input type="text" formControlName="nome" placeholder="Digite o nome" />
       </div>
-      
-      <div>
-        <label class="block text-sm font-medium">Nome *</label>
-        <input type="text" formControlName="nome" class="w-full p-2 border rounded" placeholder="Digite o nome" />
+    </div>
+
+    <div class="form-field">
+      <label>CEP *</label>
+      <div class="cep-container">
+        <input type="text" formControlName="cep" placeholder="Digite o CEP" maxlength="9" />
+        <button type="button" (click)="buscarEndereco()">Buscar</button>
       </div>
-  
-      <div>
-        <label class="block text-sm font-medium">CEP *</label>
-        <div class="flex">
-          <input type="text" formControlName="cep" class="w-full p-2 border rounded-l" placeholder="Digite o CEP" maxlength="9" />
-          <button type="button" (click)="buscarEndereco()" class="bg-blue-500 text-white px-4 rounded-r">Buscar</button>
-        </div>
+    </div>
+
+    <div class="form-field">
+      <label>Endereço *</label>
+      <input type="text" formControlName="endereco" placeholder="Endereço" />
+    </div>
+
+    <div class="form-group">
+      <div class="form-field">
+        <label>Cidade *</label>
+        <input type="text" formControlName="cidade" placeholder="Cidade" />
       </div>
-  
-      <div>
-        <label class="block text-sm font-medium">Endereço *</label>
-        <input type="text" formControlName="endereco" class="w-full p-2 border rounded" placeholder="Endereço" />
+
+      <div class="form-field">
+        <label>UF *</label>
+        <input type="text" formControlName="uf" placeholder="UF" maxlength="2" />
       </div>
-  
-      <div>
-        <label class="block text-sm font-medium">Cidade *</label>
-        <input type="text" formControlName="cidade" class="w-full p-2 border rounded" placeholder="Cidade" />
-      </div>
-  
-      <div>
-        <label class="block text-sm font-medium">UF *</label>
-        <input type="text" formControlName="uf" class="w-full p-2 border rounded" placeholder="UF" maxlength="2" />
-      </div>
-  
-  
-      <button type="submit" class="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600">Cadastrar</button>
-    </form>
-  </div>
+    </div>
+
+    <button type="submit" class="submit-btn">Cadastrar</button>
+  </form>
+</div>

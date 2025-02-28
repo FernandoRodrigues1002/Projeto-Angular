@@ -10,6 +10,7 @@ import { EditComponent } from './components/edit/edit.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterCttComponent } from './components/register-ctt/register-ctt.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RegisterCttComponent } from './components/register-ctt/register-ctt.com
     ListComponent,
     RegisterComponent,
     EditComponent,
-    RegisterCttComponent
+    RegisterCttComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

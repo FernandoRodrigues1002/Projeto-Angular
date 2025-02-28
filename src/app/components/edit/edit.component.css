@@ -1,0 +1,83 @@
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .cep-container {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .cep-container button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .cep-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .form-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .form-field {
+    flex: 1;
+  }
+  
+  .form-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .form-actions .btn {
+    width: 48%;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .btn-green {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .btn-gray {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  .btn:hover {
+    opacity: 0.9;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  

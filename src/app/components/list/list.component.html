@@ -1,6 +1,6 @@
 <div class="table-container">
-  <table class="table table-striped">
-    <thead>
+  <table class="table">
+    <thead class="titulos">
       <tr>
         <th >ID</th>
         <th >Matricula</th>
@@ -13,7 +13,7 @@
         <th>Ações</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="conteudo">
       <tr *ngFor="let pessoa of pessoas">
         <td>{{ pessoa.id }}</td>
         <td>{{ pessoa.matricula }}</td>
@@ -25,7 +25,7 @@
         <td>
           <ng-container *ngIf="pessoa.contatos.length > 0; else semContatos">
             <ul>
-              <li *ngFor="let contato of pessoa.contatos">
+              <li class="lista" *ngFor="let contato of pessoa.contatos">
                 {{ contato.tipoContato }}: {{ contato.contato }}
               </li>
             </ul>
@@ -36,10 +36,10 @@
           </ng-template>
         </td>
 
-        <td>
-          <button type="button" class="btn btn-info" (click)="editarPessoa(pessoa.id)">Editar</button>
-          <button type="button" class="btn btn-danger" (click)="confirmarExclusao(pessoa)">Excluir</button>
-          <button type="button" class="btn btn-success" (click)="adicionaCtt(pessoa.id)">Adicionar Contato</button>
+        <td class="acoes">
+          <button type="button" class="btn btn-info me-2" (click)="editarPessoa(pessoa.id)">Editar</button>
+          <button type="button" class="btn btn-success me-2" (click)="adicionaCtt(pessoa.id)">Adicionar Contato</button>
+          <button type="button" class="btn btn-danger me-2" (click)="confirmarExclusao(pessoa)">Excluir</button>
         </td>
       </tr>
     </tbody>

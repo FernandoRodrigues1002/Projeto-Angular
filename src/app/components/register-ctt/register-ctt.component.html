@@ -1,20 +1,24 @@
-
 <div class="container mx-auto max-w-md p-6 bg-white rounded-2xl shadow-lg">
-    <h2 class="text-2xl font-semibold mb-4 text-center">Cadastro de Pessoa</h2>
-    <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()" class="space-y-4">
+  <h2 class="text-2xl font-semibold mb-4 text-center">Cadastro de Contato</h2>
+  <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()" class="space-y-4">
 
-      <div>
-        <label class="block text-sm font-medium">Tipo do Contato *</label>
-        <input type="text" formControlName="tipoContato" class="w-full p-2 border rounded" placeholder="TELEFONE / CELULAR" />
-      </div>
-      
-      
-      <div>
-        <label class="block text-sm font-medium">Numero *</label>
-        <input type="text" formControlName="contato" class="w-full p-2 border rounded"/>
-      </div>
+    <div>
+      <label class="block text-sm font-medium">Tipo do Contato *</label>
+      <input type="text" formControlName="tipoContato" class="w-full p-2 border rounded" placeholder="TELEFONE / CELULAR" />
+    </div>
+    
 
-      <button type="submit" class="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600">Cadastrar</button>
-    </form>
-  </div>
-<button type="button" class="btn btn-primary" routerLink="/">Voltar</button>
+    <div>
+      <label class="block text-sm font-medium">Número *</label>
+      <input type="text" formControlName="contato" class="w-full p-2 border rounded" placeholder="Digite o número" />
+    </div>
+
+    <button type="submit" class="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600">
+      Cadastrar
+    </button>
+  </form>
+
+  <button type="button" class="w-full bg-gray-500 text-white py-2 rounded mt-4 hover:bg-gray-600" routerLink="/">
+    Voltar
+  </button>
+</div>
